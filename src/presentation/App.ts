@@ -15,6 +15,7 @@ import { DBTransactionError, GCPApiError } from "../usecase/Errors";
 const app = express();
 //res.bodyを使うために必要
 //変更してみる
+//git diff
 app.use(express.json());
 
 //全てに対して適用
