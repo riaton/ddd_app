@@ -97,9 +97,9 @@ export class Store{
         if(dto.storeOverView.length > 100) return false;
         if(dto.storeContent.length > 1000) return false;
         if(dto.storeImageUrl.length > 500) return false;
-        if(dto.storePlaceId.startsWith("place_") === false) return false;
+        if(!dto.storePlaceId.startsWith("place_")) return false;
         for(let tendency of dto.storeTendencyIds){
-            if(tendency.startsWith("tendency_") === false) return false;
+            if(!tendency.startsWith("tendency_")) return false;
         }
 
         return true;

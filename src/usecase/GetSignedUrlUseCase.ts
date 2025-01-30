@@ -2,7 +2,7 @@ import { GetSignedUrlDto } from "./Dto";
 import { IGCPBucketRepository } from "../domain/repositories/IGCPBucketRepository";
 import { GCPApiError } from "./Errors";
 
-export class RegisterStoreUseCase implements IGetSignedUrlUseCase{
+export class GetSignedUrlUseCase implements IGetSignedUrlUseCase{
     constructor(private repository: IGCPBucketRepository){}
     
     async execute(dto: GetSignedUrlDto): Promise<string>{

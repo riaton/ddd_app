@@ -12,7 +12,7 @@ export class Tag{
         if(tagName.length > 20){
             return false;
         }
-        if(tagName.startsWith("tag_")){
+        if(!tagName.startsWith("tag_")){
             return false;
         }
 

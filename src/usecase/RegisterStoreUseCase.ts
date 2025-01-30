@@ -25,7 +25,7 @@ export class RegisterStoreUseCase implements IRegisterStoreUseCase{
             if(error instanceof DomainValidateError){
                 throw error;
             }
-            throw new DBTransactionError("Error on db transaction");
+            throw new DBTransactionError("DB Error on RegisterStoreUseCase");
         }
     }
 }

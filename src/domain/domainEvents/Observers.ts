@@ -1,8 +1,9 @@
 import { Event, StoreRegisteredEvent } from "./Events";
-import * as sgMail from '@sendgrid/mail';
+import sgMail from '@sendgrid/mail';
 
 sgMail.setApiKey(process.env.SENDER_GRID_API_KEY === undefined ? 
-    "" : process.env.SENDER_GRID_API_KEY);
+    "SG.UNKNOWN" : process.env.SENDER_GRID_API_KEY);
+
 
 export interface Observer{
     execute(e: Event): void;
