@@ -18,6 +18,7 @@ export class StoresRepository implements IStoresRepository{
                 store_image_url: store.StoreImageUrl,
                 store_approval: store.IsApproved,
                 denial_reason: store.DenialReason,
+                for_which: store.ForWhich,
                 created_at: new Date(),
                 updated_at: new Date()
             });

@@ -47,7 +47,8 @@ describe('RegisterStoreUseCase', () => {
             budget: 20000, 
             storePlaceId: "place_a",
             storeTagIds: ["tag_a", "tag_b", "tag_c"],
-            storeTendencyIds: ["tendency_a", "tendency_b", "tendency_c"]
+            storeTendencyIds: ["tendency_a", "tendency_b", "tendency_c"],
+            forWhich: "woman"
         }
     });
 

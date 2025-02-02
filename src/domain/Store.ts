@@ -8,6 +8,7 @@ import { ApprovalStatus } from './Enums';
 import { StoreApproval } from './valueObjects/StoreApproval';
 import { StoreRegisteredEvent } from './domainEvents/Events';
 import { Publisher } from './domainEvents/Publishers';
+import { Sex } from './Enums';
 
 export class Store{
     private storeId: string;
@@ -62,6 +63,10 @@ export class Store{
     get StoreTendencyIds(): string[]{
         return this.storeTendencyIds;
     }
+    private forWhich: Sex;
+    get ForWhich(): Sex{
+        return this.forWhich;
+    }
 
     constructor(dto: RegisterStoreDto, isRegister: boolean, 
                 private publisher: Publisher){
@@ -89,6 +94,7 @@ export class Store{
         }
         this.StoreApproval = new StoreApproval(this.isApproved, 
                                                this.denialReason);
+        this.forWhich = dto.forWhich as Sex;
     }
 
     private validate(dto: RegisterStoreDto): boolean{
@@ -101,6 +107,7 @@ export class Store{
         for(let tendency of dto.storeTendencyIds){
             if(!tendency.startsWith("tendency_")) return false;
         }
+        if(!Object.values(Sex).includes(dto.forWhich as Sex)) return false;
 
         return true;
     }

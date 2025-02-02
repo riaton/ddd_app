@@ -9,6 +9,7 @@ export interface RegisterStoreDto{
     storePlaceId: string; //place_で始まること、必須
     storeTagIds: string[]; //tag_で始まること、必須
     storeTendencyIds: string[]; //tendency_で始まること、必須
+    forWhich: string; //man or woman、必須
 }
 
 //著名付きURL取得

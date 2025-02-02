@@ -14,8 +14,6 @@ import { DBTransactionError, GCPApiError } from "../usecase/Errors";
 
 const app = express();
 //res.bodyを使うために必要
-//変更してみる
-//git diff
 app.use(express.json());
 
 //全てに対して適用
@@ -46,7 +44,8 @@ app.post("/registerStore", authenticateJWT, async (req: RegisterStoreRequest, re
         budget: req.body.budget,
         storePlaceId: req.body.storePlaceId,
         storeTagIds: req.body.storeTagIds,
-        storeTendencyIds: req.body.storeTendencyIds
+        storeTendencyIds: req.body.storeTendencyIds,
+        forWhich: req.body.forWhich
     }
 
     const useCase = container.get<IRegisterStoreUseCase>("IRegisterStoreUseCase");

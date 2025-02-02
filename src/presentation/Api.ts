@@ -90,6 +90,7 @@ export interface RegisterStoreRequest extends Request{
         storePlaceId: string; //place_で始まること、必須
         storeTagIds: string[]; //tag_で始まること、20文字、必須
         storeTendencyIds: string[]; //tendency_で始まること、必須
+        forWhich: string; //man or woman、必須
     }
 }
 

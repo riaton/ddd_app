@@ -3,3 +3,8 @@ export enum ApprovalStatus{
     RegisterPending = "RegisterPending",
     UpdatePending = "UpdatePending"
 }
+
+export enum Sex{
+    Male = "man",
+    Female = "woman"
+}
