@@ -1,6 +1,3 @@
-//@types/node
-//nodemon
-//conflict
 import express, { Request, Response, NextFunction } from "express";
 import { RegisterStoreRequest } from "./Api";
 import { RegisterStoreDto, GetSignedUrlDto } from "../usecase/Dto";
@@ -14,28 +11,13 @@ import { IGetSignedUrlUseCase } from "../usecase/GetSignedUrlUseCase";
 import { DBTransactionError, GCPApiError } from "../usecase/Errors";
 
 const app = express();
-//res.bodyを使うために必要
 app.use(express.json());
-
-//全てに対して適用
-app.use((req, res, next) => {
-    console.log("everything");
-    next();
-});
-
-// スラッシュから始まるパスに対してのみミドルウェアを適用する
-app.use('/', (req, res, next) => {
-    console.log("middleware");
-    next();
-});
 
 //お店登録
 app.post("/registerStore", authenticateJWT, async (req: RegisterStoreRequest, res) => {
     //必須パラメータのバリデーション
-    //Todo:
-    //ログインしてるかのチェック
+    //Todo: ログインチェック
     notEmptyCheck(req);
-    //詰め替え
     const dto: RegisterStoreDto = {
         storeName: req.body.storeName,
         storeLink: req.body.storeLink,
